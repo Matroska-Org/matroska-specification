@@ -454,6 +454,12 @@ the overlay track **SHOULD** be used instead. The order of multiple TrackOverlay
 If not found it **SHOULD** be the second, etc.</documentation>
     <extension type="webmproject.org" webm="0"/>
   </element>
+  <element name="TrackLink" path="\Segment\Tracks\TrackEntry\TrackLink" id="0x6FAC" type="uinteger">
+    <documentation lang="en" purpose="definition">Specify that subtitle track is suitable for use with the audio Track UID specified (in the u-integer).
+Multiple subtitle tracks may link to the same audio track, and the same subtitle track may link to multiple audio tracks by providing multiple TrackLink elements.
+</documentation>
+    <extension type="webmproject.org" webm="0"/>
+  </element>
   <element name="CodecDelay" path="\Segment\Tracks\TrackEntry\CodecDelay" id="0x56AA" type="uinteger" minver="4" default="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">CodecDelay is The codec-built-in delay in nanoseconds.
 This value **MUST** be subtracted from each block timestamp in order to get the actual timestamp.
