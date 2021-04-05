@@ -335,7 +335,7 @@ with BlockAddIDExtraData.</documentation>
 the value refers to the BlockAddID ((#blockaddid-element)), value being described.
 To keep MaxBlockAdditionID as low as possible, small values **SHOULD** be used.</documentation>
   </element>
-  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" minver="4" maxOccurs="1">
+  <element name="BlockAddIDName" path="\Segment\Tracks\TrackEntry\BlockAdditionMapping\BlockAddIDName" id="0x41A4" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">A human-friendly name describing the type of BlockAdditional data,
 as defined by the associated Block Additional Mapping.</documentation>
   </element>
@@ -357,12 +357,12 @@ see (#language-codes) on language codes.
 This Element **MUST** be ignored if the LanguageIETF Element is used in the same TrackEntry.</documentation>
     <extension type="libmatroska" cppname="TrackLanguage"/>
   </element>
-  <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" minver="4" maxOccurs="1">
+  <element name="LanguageIETF" path="\Segment\Tracks\TrackEntry\LanguageIETF" id="0x22B59D" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language of the track according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any Language Elements used in the same TrackEntry **MUST** be ignored.</documentation>
   </element>
-  <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" minOccurs="1" maxOccurs="1">
+  <element name="CodecID" path="\Segment\Tracks\TrackEntry\CodecID" id="0x86" type="string" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">An ID corresponding to the codec,
 see [@!I-D.ietf-cellar-codec] for more info.</documentation>
   </element>
@@ -379,10 +379,10 @@ see [@!I-D.ietf-cellar-codec] for more info.</documentation>
   <element name="CodecSettings" path="\Segment\Tracks\TrackEntry\CodecSettings" id="0x3A9697" type="utf-8" minver="0" maxver="0" maxOccurs="1">
     <documentation lang="en" purpose="definition">A string describing the encoding setting used.</documentation>
   </element>
-  <element name="CodecInfoURL" path="\Segment\Tracks\TrackEntry\CodecInfoURL" id="0x3B4040" type="string" minver="0" maxver="0">
+  <element name="CodecInfoURL" path="\Segment\Tracks\TrackEntry\CodecInfoURL" id="0x3B4040" type="string" length="not 0" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">A URL to find information about the codec used.</documentation>
   </element>
-  <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" minver="0" maxver="0">
+  <element name="CodecDownloadURL" path="\Segment\Tracks\TrackEntry\CodecDownloadURL" id="0x26B240" type="string" length="not 0" minver="0" maxver="0">
     <documentation lang="en" purpose="definition">A URL to download about the codec used.</documentation>
   </element>
   <element name="CodecDecodeAll" path="\Segment\Tracks\TrackEntry\CodecDecodeAll" id="0xAA" type="uinteger" maxver="0" range="0-1" default="1" minOccurs="1" maxOccurs="1">
@@ -1079,7 +1079,7 @@ If missing the track's DefaultDuration does not apply and no duration informatio
   <element name="FileName" path="\Segment\Attachments\AttachedFile\FileName" id="0x466E" type="utf-8" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">Filename of the attached file.</documentation>
   </element>
-  <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" minOccurs="1" maxOccurs="1">
+  <element name="FileMimeType" path="\Segment\Attachments\AttachedFile\FileMimeType" id="0x4660" type="string" length="not 0" minOccurs="1" maxOccurs="1">
     <documentation lang="en" purpose="definition">MIME type of the file.</documentation>
     <extension type="libmatroska" cppname="MimeType"/>
   </element>
@@ -1194,12 +1194,12 @@ This Element **MUST** be ignored if the ChapLanguageIETF Element is used within 
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="ChapterLanguage"/>
   </element>
-  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" minver="4">
+  <element name="ChapLanguageIETF" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapLanguageIETF" id="0x437D" type="string" length="not 0" minver="4">
     <documentation lang="en" purpose="definition">Specifies the language used in the ChapString according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any ChapLanguage Elements used in the same ChapterDisplay **MUST** be ignored.</documentation>
   </element>
-  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string">
+  <element name="ChapCountry" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterDisplay\ChapCountry" id="0x437E" type="string" length="not 0">
     <documentation lang="en" purpose="definition">The countries corresponding to the string, same 2 octets country-codes as in Internet domains [@!IANADomains] based on [@!ISO3166-1] alpha-2 codes.
 This Element **MUST** be ignored if the ChapLanguageIETF Element is used within the same ChapterDisplay Element.</documentation>
     <extension type="webmproject.org" webm="1"/>
@@ -1282,7 +1282,7 @@ If empty or not present, then the Tag describes everything in the Segment.</docu
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagTargetTypeValue"/>
   </element>
-  <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" maxOccurs="1">
+  <element name="TargetType" path="\Segment\Tags\Tag\Targets\TargetType" id="0x63CA" type="string" length="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">An informational string that can be used to display the logical level of the target like "ALBUM", "TRACK", "MOVIE", "CHAPTER", etc
 ; see Section 6.4 of [@!I-D.ietf-cellar-tags].</documentation>
     <restriction>
@@ -1345,7 +1345,7 @@ This Element **MUST** be ignored if the TagLanguageIETF Element is used within t
     <extension type="webmproject.org" webm="1"/>
     <extension type="libmatroska" cppname="TagLangue"/>
   </element>
-  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" minver="4" maxOccurs="1">
+  <element name="TagLanguageIETF" path="\Segment\Tags\Tag\+SimpleTag\TagLanguageIETF" id="0x447B" type="string" length="not 0" minver="4" maxOccurs="1">
     <documentation lang="en" purpose="definition">Specifies the language used in the TagString according to [@!BCP47]
 and using the IANA Language Subtag Registry [@!IANALangRegistry].
 If this Element is used, then any TagLanguage Elements used in the same SimpleTag **MUST** be ignored.</documentation>
