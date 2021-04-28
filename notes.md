@@ -332,6 +332,27 @@ Overlay tracks **SHOULD** be rendered in the same channel as the track its linke
 When content is found in such a track, it **SHOULD** be played on the rendering channel
 instead of the original track.
 
+## Track Links
+
+A track link indicates that a given subtitle track is suitable for use with a given audio track,
+and that it **SHOULD** be eligible for autoselection when that audio track is selected.
+
+For instance:
+- A subtitle track containing a translation of an audio track in another language should be
+  linked to that track, but should not be linked to another audio track featuring a dub
+  into the same language with a different translation.
+  A subtitle track containing a transcription of the dub, if present, should be linked to the dub audio track.
+- A forced subtitle track containing onscreen text consistent with the dialogue in an audio track
+  of the same language should be linked to that track, but should not be linked to another audio track
+  featuring a different translation into the same language.
+- A subtitle track containing a transcription of an audio commentary track should be linked to
+  that audio commentary track, but not to other tracks featuring separate commentary recordings.
+
+Track links are only necessary when the set of tracks available creates ambiguity about which
+subtitles are appropriate for which audio, and function as a hint to the player to improve
+its automatic track selection behavior. In cases where there is no such ambiguity, there is
+no need to explicitly specify track links.
+
 ## Multi-planar and 3D videos
 
 There are two different ways to compress 3D videos: have each eye track in a separate track
