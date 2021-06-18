@@ -1159,6 +1159,36 @@ When disabled, the movie **SHOULD** skip all the content between the TimeStart a
     <documentation lang="en" purpose="definition">The SegmentUID of another Segment to play during this chapter.</documentation>
     <implementation_note note_attribute="minOccurs">ChapterSegmentUID **MUST** be set (minOccurs=1) if ChapterSegmentEditionUID is used; see (#medium-linking) on medium-linking Segments.</implementation_note>
   </element>
+  <element name="ChapterSkipType" path="0*1(\Segment\Chapters\EditionEntry\ChapterAtom\ChapterSkipType)" id="0x4588" type="uinteger" maxOccurs="1" minver="5">
+    <documentation lang="en">Indicate what type of content the ChapterAtom contains and might be skipped. It can be used to automatically skip content based on the type.
+If a `ChapterAtom` is inside a `ChapterAtom` that has a `ChapterSkipType` set, it MUST NOT have a `ChapterSkipType` or have a `ChapterSkipType` with the same value as it's parent `ChapterAtom`.
+If the `ChapterAtom` doesn't contain a `ChapterTimeEnd`, the value of the `ChapterSkipType` is only valid until the next `ChapterAtom` with a `ChapterSkipType` value or the end of the file.
+    </documentation>
+    <extension type="webmproject.org" webm="0"/>
+    <restriction>
+      <enum value="0" label="No Skipping">
+        <documentation lang="en" purpose="definition">Content which should not be skipped.</documentation>
+      </enum>
+      <enum value="1" label="Opening Credits">
+        <documentation lang="en" purpose="definition">Credits usually found at the beginning of the content.</documentation>
+      </enum>
+      <enum value="2" label="End Credits">
+        <documentation lang="en" purpose="definition">Credits usually found at the end of the content.</documentation>
+      </enum>
+      <enum value="3" label="Recap">
+        <documentation lang="en" purpose="definition">Recap of previous episodes of the content, usually found around the beginning.</documentation>
+      </enum>
+      <enum value="4" label="Next Preview">
+        <documentation lang="en" purpose="definition">Preview of the next episode of the content, usually found around the end. It may contain spoilers the user wants to avoid.</documentation>
+      </enum>
+      <enum value="5" label="Preview">
+        <documentation lang="en" purpose="definition">Preview of the current episode of the content, usually found around the beginning. It may contain spoilers the user want to avoid.</documentation>
+      </enum>
+      <enum value="6" label="Advertisement">
+        <documentation lang="en" purpose="definition">Advertisement within the content.</documentation>
+      </enum>
+    </restriction>
+  </element>
   <element name="ChapterSegmentEditionUID" path="\Segment\Chapters\EditionEntry\+ChapterAtom\ChapterSegmentEditionUID" id="0x6EBC" type="uinteger" range="not 0" maxOccurs="1">
     <documentation lang="en" purpose="definition">The EditionUID to play from the Segment linked in ChapterSegmentUID.
 If ChapterSegmentEditionUID is undeclared, then no Edition of the linked Segment is used; see (#medium-linking) on medium-linking Segments.</documentation>
